@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.project.android.bruce.simpleweather.R;
 import com.project.android.bruce.simpleweather.adapter.ViewPagerAdapter;
@@ -16,12 +17,15 @@ import java.util.List;
  * Created by shuai on 2016/2/25.
  * ViewPager引导的活动
  */
-public class GuideActivity extends AppCompatActivity {
+public class GuideActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
 
     private ViewPager viewPager;//创建引导页对象
     private ViewPagerAdapter vpAdapter;
     private List<View> viewList;
+
+    private ImageView[] dots;
+    private int[] dts = {R.id.point1,R.id.point2,R.id.point3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,14 @@ public class GuideActivity extends AppCompatActivity {
         setContentView(R.layout.guide_layout);
 
         initViews();
+        initDots();
+    }
+
+    private void initDots() {
+        dots = new ImageView[viewList.size()];//将点图片数量和引导页数量设置为一致
+        for (int i = 0; i < viewList.size(); i++) {
+            dots[i]= (ImageView) findViewById(dts[i]);
+        }
     }
 
     private void initViews() {
@@ -41,6 +53,29 @@ public class GuideActivity extends AppCompatActivity {
         vpAdapter = new ViewPagerAdapter(viewList,this);
         viewPager = (ViewPager) findViewById(R.id.guide_view_pager);
         viewPager.setAdapter(vpAdapter);
+        viewPager.addOnPageChangeListener(this); //监听ViewPager的页面，设置点的类型
+
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    //监听ViewPager的页面，设置点的类型
+    @Override
+    public void onPageSelected(int position) {
+        for (int i = 0; i < viewList.size(); i++) {
+            if (position == i){
+                dots[i].setImageResource(R.drawable.point_light);
+            }else {
+                dots[i].setImageResource(R.drawable.point_dark);
+            }
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
 
     }
 }

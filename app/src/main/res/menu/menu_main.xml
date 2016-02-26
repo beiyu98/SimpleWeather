@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <item
         android:id="@+id/share"
         android:icon="@drawable/share"
-        android:showAsAction="always"
+        app:showAsAction="always"
         android:title="分享" />
-    <!--<item-->
-        <!--android:id="@+id/add_location"-->
-        <!--android:icon="@drawable/search"-->
-        <!--android:title="添加"-->
-        <!--android:showAsAction="always"/>-->
-    <!--<item-->
-        <!--android:id="@+id/setting"-->
-        <!--android:title="设置"-->
-        <!--android:showAsAction="never"/>-->
+    <item
+        android:id="@+id/add_location"
+        android:icon="@drawable/search"
+        android:title="添加"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/setting"
+        android:title="设置"
+        app:showAsAction="never"/>
 </menu>

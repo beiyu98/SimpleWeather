@@ -1,6 +1,5 @@
 package com.project.android.bruce.simpleweather.activity;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -31,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.share:
                 return true;
-//            case R.id.add_location:
-//                return true;
-//            case R.id.setting:
-//                return true;
+            case R.id.add_location:
+                return true;
+            case R.id.setting:
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

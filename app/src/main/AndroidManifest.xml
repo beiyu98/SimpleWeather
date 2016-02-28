@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.android.bruce.simpleweather">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,7 @@
             android:logo="@drawable/barlogo"></activity>
 
         <activity android:name=".activity.GuideActivity"></activity>
+        <activity android:name=".activity.SelectCityActivity"></activity>
     </application>
 
 </manifest>
